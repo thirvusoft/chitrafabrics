@@ -124,9 +124,13 @@ app_license = "mit"
 
 doc_events = {
 	"Item": {
+        "on_update": "price.price.utils.py.purchase_rate.new_rate",
 		"autoname": "chitrafabrics.chitrafabrics.utils.py.item.item_name",
         "on_trash":"chitrafabrics.chitrafabrics.utils.py.item.item_name_delete"
-	}
+	} ,
+    "Purchase Invoice": {
+		"on_update": "price.price.utils.py.purchase_rate.last_rate",
+	} ,
 }
 
 # Scheduled Tasks
