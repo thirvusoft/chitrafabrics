@@ -131,6 +131,10 @@ doc_events = {
     "Purchase Invoice": {
 		"on_update": "chitrafabrics.chitrafabrics.utils.py.purchase_invoice.last_rate",
 	} ,
+	"Batch":{
+		"autoname":"chitrafabrics.chitrafabrics.utils.py.batch.batch_id_naming",
+		"on_trash":"chitrafabrics.chitrafabrics.utils.py.batch.batch_id_trash"
+	}
 }
 
 # Scheduled Tasks
