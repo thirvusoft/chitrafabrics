@@ -134,6 +134,9 @@ doc_events = {
 	"Batch":{
 		"autoname":"chitrafabrics.chitrafabrics.utils.py.batch.batch_id_naming",
 		"on_trash":"chitrafabrics.chitrafabrics.utils.py.batch.batch_id_trash"
+	},
+	"Serial and Batch Bundle": {
+		"on_submit":"chitrafabrics.chitrafabrics.utils.py.batch.price_updation"
 	}
 }
 
