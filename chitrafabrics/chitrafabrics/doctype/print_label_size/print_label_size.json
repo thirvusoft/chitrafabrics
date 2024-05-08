@@ -1,0 +1,44 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:label_size",
+ "creation": "2024-05-03 16:49:34.494525",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "label_size"
+ ],
+ "fields": [
+  {
+   "fieldname": "label_size",
+   "fieldtype": "Data",
+   "label": "Label Size",
+   "unique": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-08 13:41:55.048834",
+ "modified_by": "Administrator",
+ "module": "chitrafabrics",
+ "name": "Print Label Size",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
