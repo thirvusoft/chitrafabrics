@@ -137,6 +137,10 @@ doc_events = {
 	},
 	"Serial and Batch Bundle": {
 		"on_submit":"chitrafabrics.chitrafabrics.utils.py.batch.price_updation"
+	},
+	"Sales Invoice": {
+		"autoname":"chitrafabrics.chitrafabrics.utils.py.sales_invoice.sales_invoice_naming",
+		"on_trash":"chitrafabrics.chitrafabrics.utils.py.sales_invoice.sales_invoice_naming_deletion"
 	}
 }
 
