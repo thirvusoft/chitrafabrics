@@ -3,12 +3,20 @@ from frappe.model.naming import parse_naming_series, make_autoname, revert_serie
 
 def batch_id_naming(doc, action):
     if doc.item:
-        doc.name = make_autoname(f"{doc.item}-B.#")
-        doc.batch_id = doc.name
+        barcode_name = doc.item
+        barcode_name_list = doc.item.split('-')
+        if len(barcode_name) > 0:
+            barcode_name = barcode_name_list[0]
+        doc.name = make_autoname(f"{barcode_name}-B.#")
+        doc.batch_id = doc.name 
 
 def batch_id_trash(doc, action):
     if doc.item:
-        revert_series_if_last(f"{doc.item}-B.#", doc.name)
+        barcode_name = doc.item
+        barcode_name_list = doc.item.split('-')
+        if len(barcode_name) > 0:
+            barcode_name = barcode_name_list[0]
+        revert_series_if_last(f"{barcode_name}-B.#", doc.name)
 
 
 def price_updation(doc, action):
