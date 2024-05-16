@@ -123,6 +123,9 @@ doctype_js = {"Sales Invoice" : "chitrafabrics/chitrafabrics/chitrafabrics/utils
 # Hook on document methods and events
 
 doc_events = {
+    "Stock Entry" : {
+        "on_update":"chitrafabrics.chitrafabrics.utils.py.stock_entry.fetchdata"
+	},
 	"Item": {
         "on_update": "chitrafabrics.chitrafabrics.utils.py.purchase_invoice.new_rate",
 		"autoname": "chitrafabrics.chitrafabrics.utils.py.item.item_name",
