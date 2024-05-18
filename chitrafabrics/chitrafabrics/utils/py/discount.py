@@ -31,4 +31,9 @@ def discount(doc):
 
 def set_discount(doc , events):
     for i in doc.discount_table:
-        batch = 
+        batch = frappe.get_doc("Batch" , i.batch)
+        batch.custom_item_discount_percentage = i.discount_percentage
+        batch.custom_item_discount_rate = (float(i.rate) / 100 )* float(i.discount_percentage)
+        batch.save()
+        batch.reload()
+        frappe.msgprint("Discount for All Batches Updated Successfully")
