@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-18 10:30:03.604028",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_scng",
+  "amended_from",
+  "section_break_twcp",
+  "item_type",
+  "column_break_jccf",
+  "percentage",
+  "section_break_kgqd",
+  "items",
+  "get_batch",
+  "section_break_rwjl",
+  "discount_table"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_scng",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Discount",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_twcp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Item Type",
+   "options": "\nItem Code\nItem Template",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_jccf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_rwjl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "discount_table",
+   "fieldtype": "Table",
+   "label": "Discount Table",
+   "options": "Discount Table"
+  },
+  {
+   "fieldname": "get_batch",
+   "fieldtype": "Button",
+   "label": "Get Batch"
+  },
+  {
+   "description": "This percentage is applied to all batch in the discount Table ",
+   "fieldname": "percentage",
+   "fieldtype": "Data",
+   "label": "Percentage"
+  },
+  {
+   "fieldname": "section_break_kgqd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Item",
+   "options": "Discount Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-05-18 11:33:44.187535",
+ "modified_by": "Administrator",
+ "module": "chitrafabrics",
+ "name": "Discount",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
