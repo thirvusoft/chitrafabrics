@@ -3,12 +3,12 @@ from frappe.model.naming import parse_naming_series, make_autoname, revert_serie
 
 def batch_id_naming(doc, action):
     if doc.item:
-        doc.name = make_autoname(f"{doc.item}-B.#")
+        doc.name = make_autoname(f"{doc.item}-A.#")
         doc.batch_id = doc.name
 
 def batch_id_trash(doc, action):
     if doc.item:
-        revert_series_if_last(f"{doc.item}-B.#", doc.name)
+        revert_series_if_last(f"{doc.item}-A.#", doc.name)
 
 def price_updation(doc, action):
     if doc.docstatus == 1:
