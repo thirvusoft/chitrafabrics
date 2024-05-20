@@ -22,7 +22,8 @@
    "fieldname": "rate",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Rate"
+   "label": "Rate",
+   "read_only": 1
   },
   {
    "fieldname": "discount_percentage",
@@ -34,7 +35,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-05-18 10:49:33.207750",
+ "modified": "2024-05-18 18:54:21.403830",
  "modified_by": "Administrator",
  "module": "chitrafabrics",
  "name": "Discount Table",
