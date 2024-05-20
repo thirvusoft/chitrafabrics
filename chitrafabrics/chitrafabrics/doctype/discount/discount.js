@@ -26,6 +26,7 @@ frappe.ui.form.on("Discount", {
             },
             callback: function(response) {
                 if (response.message) {
+                    
                     const batch_names = response.message;  
                     frm.clear_table("discount_table");  
                     batch_names.forEach(batch_name => {
