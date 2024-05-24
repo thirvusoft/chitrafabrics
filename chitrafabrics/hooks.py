@@ -25,7 +25,9 @@ app_license = "mit"
 # webform_include_css = {"doctype": "public/css/doctype.css"}
 
 # include js in page
-# page_js = {"page" : "public/js/file.js"}
+page_js = {
+    "point-of-sale" : "chitrafabrics/utils/js/pos.js"
+}
 
 # include js in doctype views
 doctype_js = {"Sales Invoice" : "chitrafabrics/utils/js/sales_invoice.js"}
@@ -147,7 +149,12 @@ doc_events = {
 	},
 	"Sales Invoice": {
 		"autoname":"chitrafabrics.chitrafabrics.utils.py.sales_invoice.sales_invoice_naming",
-		"on_trash":"chitrafabrics.chitrafabrics.utils.py.sales_invoice.sales_invoice_naming_deletion"
+		"on_trash":"chitrafabrics.chitrafabrics.utils.py.sales_invoice.sales_invoice_naming_deletion",
+        "before_cancel": "chitrafabrics.chitrafabrics.utils.py.sales_invoice.before_cancel",
+
+	},
+    "POS Invoice":{
+        "on_submit": "chitrafabrics.chitrafabrics.utils.py.pos_invoice.on_submit"
 	}
 }
 

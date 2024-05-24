@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../apps/chitrafabrics/chitrafabrics/public/js/point_of_sale/pos_controller.js"],
+  "sourcesContent": ["\nerpnext.PointOfSale.Controller = class Controller extends erpnext.PointOfSale.Controller {\n\t\n\tmake_sales_invoice_frm() {\n\t\tconst doctype = \"POS Invoice\";\n\t\treturn new Promise((resolve) => {\n\t\t\tif (this.frm) {\n\t\t\t\tthis.set_pos_profile_data();\n\t\t\t\tthis.frm = this.get_new_frm(this.frm);\n\t\t\t\tthis.frm.doc.items = [];\n\t\t\t\tthis.frm.doc.is_pos = 1;\n\t\t\t\tresolve();\n\t\t\t} else {\n\t\t\t\tfrappe.model.with_doctype(doctype, () => {\n\t\t\t\t\tthis.frm = this.get_new_frm();\n\t\t\t\t\tthis.frm.doc.items = [];\n\t\t\t\t\tthis.frm.doc.is_pos = 1;\n\t\t\t\t\tresolve();\n\t\t\t\t});\n\t\t\t}\n\t\t});\n\t}\n}\n"],
+  "mappings": ";;AACA,UAAQ,YAAY,aAAa,MAAM,mBAAmB,QAAQ,YAAY,WAAW;AAAA,IAExF,yBAAyB;AACxB,YAAM,UAAU;AAChB,aAAO,IAAI,QAAQ,CAAC,YAAY;AAC/B,YAAI,KAAK,KAAK;AACb,eAAK,qBAAqB;AAC1B,eAAK,MAAM,KAAK,YAAY,KAAK,GAAG;AACpC,eAAK,IAAI,IAAI,QAAQ,CAAC;AACtB,eAAK,IAAI,IAAI,SAAS;AACtB,kBAAQ;AAAA,QACT,OAAO;AACN,iBAAO,MAAM,aAAa,SAAS,MAAM;AACxC,iBAAK,MAAM,KAAK,YAAY;AAC5B,iBAAK,IAAI,IAAI,QAAQ,CAAC;AACtB,iBAAK,IAAI,IAAI,SAAS;AACtB,oBAAQ;AAAA,UACT,CAAC;AAAA,QACF;AAAA,MACD,CAAC;AAAA,IACF;AAAA,EACD;",
+  "names": []
+}
