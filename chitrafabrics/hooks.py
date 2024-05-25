@@ -131,7 +131,7 @@ doc_events = {
 		"autoname": "chitrafabrics.chitrafabrics.utils.py.item.item_name",
         "on_trash":"chitrafabrics.chitrafabrics.utils.py.item.item_name_delete"
 	} ,
-    "Purchase Invoice": {
+    "Purchase Receipt": {
 		"on_update": "chitrafabrics.chitrafabrics.utils.py.purchase_invoice.last_rate",
 	} ,
 	"Batch":{

@@ -1,7 +1,7 @@
 import frappe
 def last_rate(doc, event):
     for i in doc.items:
-        last_rate = frappe.db.get_value('Purchase Invoice Item', {
+        last_rate = frappe.db.get_value('Purchase Receipt Item', {
             'item_code': i.item_code,
             'docstatus': 1  # Consider only submitted documents
         }, 'rate', {
@@ -13,7 +13,8 @@ def last_rate(doc, event):
             item = frappe.get_doc("Item" , i.item_code)
             for j in item.custom_price_table:
                 price_list = frappe.get_all("Item Price", filters={"price_list": j.price_list, "item_code": i.item_code , "custom_branch" : j.branch})
-
+                frappe.set_value("Item" , i.item_name , "valuation_rate" , float(i.rate) * (1 + float(j.percentage) / 100))
+                frappe.db.commit()
                 if price_list:
                     frappe.set_value("Item Price" , price_list[0] , "price_list_rate" , float(i.rate) * (1 + float(j.percentage) / 100))
                     frappe.db.commit()
