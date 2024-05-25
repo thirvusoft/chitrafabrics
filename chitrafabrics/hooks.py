@@ -28,7 +28,7 @@ app_license = "mit"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-doctype_js = {"Sales Invoice" : "chitrafabrics/chitrafabrics/chitrafabrics/utils/js/sales_invoice.js"}
+doctype_js = {"Sales Invoice" : "chitrafabrics/utils/js/sales_invoice.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -122,7 +122,11 @@ doctype_js = {"Sales Invoice" : "chitrafabrics/chitrafabrics/chitrafabrics/utils
 # ---------------
 # Hook on document methods and events
 
-doc_events = {
+doc_events = {  
+              
+			  "Discount" : {
+                  "on_submit" : "chitrafabrics.chitrafabrics.utils.py.discount.set_discount"
+			  } ,
     "Stock Entry" : {
         "on_update":"chitrafabrics.chitrafabrics.utils.py.stock_entry.fetchdata"
 	},
