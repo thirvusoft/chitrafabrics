@@ -15,7 +15,7 @@ class Discount(Document):
             batch.custom_item_discount_rate = batch.custom_item_price - (float(batch.custom_item_price) / 100 )* float(i.discount_percentage) 
             batch.save()
             batch.reload()
-            frappe.msgprint("Discount for All Batches Updated Successfully")
+        frappe.msgprint("Discount for All Batches Updated Successfully")
 
 @frappe.whitelist()
 def discount(doc):
