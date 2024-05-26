@@ -26,3 +26,12 @@ def sales_invoice_naming_deletion(self, event):
             revert_series_if_last("TEX-2425-.#####", self.name)
         if self.branch == "Kalachar Sathy":
             revert_series_if_last("CKS-2425-.#####", self.name)
+
+@frappe.whitelist()
+def set_rate(batch_name):
+    batch_no = frappe.get_doc("Batch",batch_name)
+    if batch_no.custom_item_discount_rate:
+        return batch_no.custom_item_discount_rate
+    else:
+        return batch_no.custom_item_price
+        

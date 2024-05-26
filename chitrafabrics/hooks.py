@@ -123,10 +123,6 @@ doctype_js = {"Sales Invoice" : "chitrafabrics/utils/js/sales_invoice.js"}
 # Hook on document methods and events
 
 doc_events = {  
-              
-			  "Discount" : {
-                  "on_submit" : "chitrafabrics.chitrafabrics.utils.py.discount.set_discount"
-			  } ,
     "Stock Entry" : {
         "on_update":"chitrafabrics.chitrafabrics.utils.py.stock_entry.fetchdata"
 	},

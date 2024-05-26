@@ -1,26 +1,26 @@
 frappe.ui.form.on("Discount", {
-    item_type: function(frm) {
-        if (frm.doc.item_type == "Item Template") {
-            frm.fields_dict['items'].grid.get_field('item').get_query = function(doc, cdt, cdn) {
+    refresh(frm){
+        frm.set_query("item","items", function (doc) {
+            if(doc.item_type == "Item Template"){
                 return {
-                    filters: [
-                        ['Item', 'has_variants', '=', 1]
-                    ]
-                };
-            };
-        } else {
-            frm.fields_dict['items'].grid.get_field('item').get_query = function(doc, cdt, cdn) {
+                    filters: {
+                        has_variants: 1,
+                    },
+                }
+            }
+            else{
                 return {
-                    filters: [
-                        ['Item', 'has_variants', '=', 0]
-                    ]
-                };
-            };
-        }
-    } ,
+                    filters: {
+                        has_variants: 0,
+                    },
+                }
+            }
+		});
+    },
+
     get_batch(frm) {
         frappe.call({
-            method: "chitrafabrics.chitrafabrics.utils.py.discount.discount",
+            method: "chitrafabrics.chitrafabrics.doctype.discount.discount.discount",
             args: {
                 doc: frm.doc
             },
