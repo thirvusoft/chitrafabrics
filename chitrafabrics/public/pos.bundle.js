@@ -1,0 +1,1 @@
+import "./js/point_of_sale/pos_controller.js"
