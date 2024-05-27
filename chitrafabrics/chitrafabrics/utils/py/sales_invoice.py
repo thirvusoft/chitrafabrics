@@ -78,3 +78,12 @@ def delete_merge_log_pos(self):
             for i in pos_invoices:
                 frappe.delete_doc('POS Invoice', i.pos_invoice)
 
+
+@frappe.whitelist()
+def set_rate(batch_name):
+    batch_no = frappe.get_doc("Batch",batch_name)
+    if batch_no.custom_item_discount_rate:
+        return batch_no.custom_item_discount_rate
+    else:
+        return batch_no.custom_item_price
+        
