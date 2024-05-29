@@ -30,7 +30,8 @@ frappe.ui.form.on("Discount", {
                     frm.clear_table("discount_table");  
                     batch_names.forEach(batch_name => {
                         let row = frm.add_child("discount_table");  
-                        row.batch = batch_name;  
+                        row.batch = batch_name.name;
+                        row.rate = batch_name.rate;  
                         row.discount_percentage =  frm.doc.percentage
                     });
                     frm.refresh_field("discount_table");  

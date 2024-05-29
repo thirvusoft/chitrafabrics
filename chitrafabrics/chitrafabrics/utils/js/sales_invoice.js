@@ -1,12 +1,43 @@
 frappe.ui.form.on('Sales Invoice', {
-    branch(frm){
-        if (frm.doc.branch) {
-            frm.set_value("set_warehouse" , frm.doc.branch + " - CF" )
-        }
+    after_submit: function(frm) {
+        branch_value=frappe.get_doc("Warehouse",frm.doc.set_warehouse)
+
+        if (frm.doc.set_warehouse) {
+        frappe.call({
+
+
+            method:"frappe.client.set_value",
+            args:{
+                doctype:"Sales Invoice",
+                name:frm.doc.name,
+                fieldname:'branch',
+                value:branch_value,
+            }
         
+        })
+    }
+
+
+
+
+        // if (frm.doc.branch) {
+        //     branch_value=frappe.get_doc("Warehouse",frm.doc.set_warehouse)
+        //     frappe.db.set_value('Sales Invoice', frm.doc.name, 'branch', frm.doc.custom_branch)
+        //         .then(function() {
+        //             frm.reload_doc();
+        //         });  
+        // }
     },
 
-});
+
+    branch: function(frm) {
+        if (frm.doc.branch) {
+            frm.set_value('set_warehouse', frm.doc.branch + ' - CF');
+        }
+   
+    }});
+
+
 frappe.ui.form.on('Sales Invoice Item', {
     batch_no(frm,cdt,cdn){
         let row = locals[cdt][cdn]

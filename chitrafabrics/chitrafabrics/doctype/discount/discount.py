@@ -35,11 +35,14 @@ def discount(doc):
                 batch_names = add_batch(frappe.get_doc("Item", i),batch_names)
         else:
             batch_names = add_batch(item,batch_names)
-        
-    return batch_names
+    batch = []
+    for i in batch_names:
+        b = frappe.get_doc("Batch",i)
+        batch.append({"name":b.name,"rate":b.custom_item_price})
+    return batch
 
 def add_batch(item,batch_names):
-
+    batch = []
     if item.has_batch_no:
         batches = frappe.get_all("Batch", filters={"item": item.name}, fields=['name'])
         batch_names.extend( [batch['name'] for batch in batches if batch['name'] not in batch_names])

@@ -9,8 +9,10 @@
   "amended_from",
   "section_break_twcp",
   "item_type",
+  "discount_starting_date",
   "column_break_jccf",
   "percentage",
+  "discount_ending_date",
   "section_break_kgqd",
   "items",
   "get_batch",
@@ -78,12 +80,22 @@
    "fieldtype": "Table",
    "label": "Item",
    "options": "Discount Item"
+  },
+  {
+   "fieldname": "discount_starting_date",
+   "fieldtype": "Date",
+   "label": "Discount Starting Date"
+  },
+  {
+   "fieldname": "discount_ending_date",
+   "fieldtype": "Date",
+   "label": "Discount Ending Date"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-05-24 18:42:27.358462",
+ "modified": "2024-05-29 16:14:43.405765",
  "modified_by": "Administrator",
  "module": "chitrafabrics",
  "name": "Discount",
