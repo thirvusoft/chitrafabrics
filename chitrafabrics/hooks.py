@@ -157,13 +157,13 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"chitrafabrics.tasks.all"
 # 	],
-# 	"daily": [
-# 		"chitrafabrics.tasks.daily"
-# 	],
+	"daily": [
+		"chitrafabrics.chitrafabrics.doctype.discount.discount.discount_end"
+	],
 # 	"hourly": [
 # 		"chitrafabrics.tasks.hourly"
 # 	],
@@ -173,7 +173,7 @@ doc_events = {
 # 	"monthly": [
 # 		"chitrafabrics.tasks.monthly"
 # 	],
-# }
+}
 
 # Testing
 # -------
