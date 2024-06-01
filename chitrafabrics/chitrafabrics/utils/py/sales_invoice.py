@@ -1,5 +1,34 @@
 import frappe
+import os
 from frappe.model.naming import parse_naming_series, make_autoname, revert_series_if_last
+from barcode import Code128
+
+def validate(doc, event=None):
+    generate_bar_code(doc)
+
+def generate_bar_code(doc):
+    if frappe.db.exists("File", {
+        "attached_to_doctype": "Sales Invoice",
+        "attached_to_name": doc.name,
+        "attached_to_field":'invoice_barcode',
+    }):
+        frappe.errprint("Return")
+        return
+    _file = frappe.new_doc("File")
+    _file.update({
+            "file_name": f"{doc.name}.svg",
+            "content":doc.name,
+            "attached_to_doctype": "Sales Invoice",
+            "attached_to_name": doc.name,
+            "attached_to_field":'invoice_barcode',
+    })
+    _file.save()
+
+    file_path = os.path.join(frappe.get_site_path("public", "files"), _file.file_name)
+
+    with open(file_path, "wb") as f:
+        f.write(Code128(doc.name).render())
+    doc.invoice_barcode = _file.file_url
 
 def sales_invoice(price_list , branch , item):
     rate = frappe.db.get_value("Item Price" , { "item_code" : item , "custom_branch" : Branch , "price_list" : price_list}  ,  "price_list_rate")
