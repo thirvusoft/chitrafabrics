@@ -84,18 +84,20 @@
   {
    "fieldname": "discount_starting_date",
    "fieldtype": "Date",
-   "label": "Discount Starting Date"
+   "label": "Discount Starting Date",
+   "reqd": 1
   },
   {
    "fieldname": "discount_ending_date",
    "fieldtype": "Date",
-   "label": "Discount Ending Date"
+   "label": "Discount Ending Date",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-05-29 16:14:43.405765",
+ "modified": "2024-05-30 18:05:40.447346",
  "modified_by": "Administrator",
  "module": "chitrafabrics",
  "name": "Discount",
