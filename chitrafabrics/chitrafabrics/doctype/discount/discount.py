@@ -4,6 +4,10 @@
 import frappe
 from frappe import _
 from datetime import datetime
+from frappe.utils import (
+	today,
+    add_days
+)
 
 from frappe.model.document import Document
 
@@ -45,10 +49,19 @@ def discount(doc):
         dt = frappe.get_all("Discount Table",filters={"batch":i["name"],"parent":["!=",doc.name],"docstatus":1},pluck="parent")
         for f in dt:
             d_doc = frappe.get_doc("Discount", f)
-            if not dates_overlap(d_doc.discount_starting_date, d_doc.discount_ending_date, datetime.strptime(doc.discount_starting_date, "%Y-%m-%d").date(), datetime.strptime(doc.discount_ending_date, "%Y-%m-%d").date()):
+            if dates_overlap(d_doc.discount_starting_date, d_doc.discount_ending_date, datetime.strptime(doc.discount_starting_date, "%Y-%m-%d").date(), datetime.strptime(doc.discount_ending_date, "%Y-%m-%d").date()):
                 remove_batch.append(i)
-    for i in remove_batch:
-        batch.remove(i)
+    t=[]
+    try:
+        for i in remove_batch:
+            if i["name"] not in t:
+                t.append(i["name"])
+            batch.remove(i)
+    except:
+        pass 
+    
+    if t:
+        frappe.msgprint(f"{frappe.utils.comma_and(t, add_quotes=False)} are skip to add in discount because there are already in discount")
     return batch
 
 def dates_overlap(old_start, old_end, new_start, new_end):
@@ -67,7 +80,7 @@ def add_batch(item,batch_names):
 def discount_end():
     get_all = frappe.get_all("Discount", fields=["name","discount_starting_date","discount_ending_date"])
     for i in get_all:
-        if str(i['discount_ending_date']) == frappe.utils.today():
+        if str(i['discount_ending_date']) == add_days(today(),-1):
             doc = frappe.get_doc("Discount",i["name"])
             for item in doc.get('discount_table', []):
                 b = frappe.get_doc("Batch", item.batch)
