@@ -12,7 +12,6 @@ def generate_bar_code(doc):
         "attached_to_name": doc.name,
         "attached_to_field":'invoice_barcode',
     }):
-        frappe.errprint("Return")
         return
     _file = frappe.new_doc("File")
     _file.update({
@@ -31,7 +30,7 @@ def generate_bar_code(doc):
     doc.invoice_barcode = _file.file_url
 
 def sales_invoice(price_list , branch , item):
-    rate = frappe.db.get_value("Item Price" , { "item_code" : item , "custom_branch" : Branch , "price_list" : price_list}  ,  "price_list_rate")
+    rate = frappe.db.get_value("Item Price" , { "item_code" : item , "custom_branch" : branch, "price_list" : price_list}  ,  "price_list_rate")
     return rate
 
 def sales_invoice_naming(self, event):
