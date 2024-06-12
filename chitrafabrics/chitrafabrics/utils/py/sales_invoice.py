@@ -65,21 +65,12 @@ def before_cancel(self, event):
 
 def cancel_merge_log_pos(self):
 
-    if self.is_pos and not self.amended_from:
-
+    if self.is_pos and not self.amended_from and frappe.db.exists("POS Invoice", {"consolidated_invoice": self.name}):
         pos_invoice_doc = frappe.get_doc("POS Invoice", {"consolidated_invoice": self.name})
-
         merge_log_name = frappe.get_value("POS Invoice Reference", {"pos_invoice": pos_invoice_doc.name}, "parent")
-
         merge_log_doc = frappe.get_doc("POS Invoice Merge Log", merge_log_name)
-        
-
         merge_log_doc.cancel()
-        
-
-
         pos_invoice_doc.reload()
-
         pos_invoice_doc.cancel()
 
 def unlink_serial_batch_bundle(self):

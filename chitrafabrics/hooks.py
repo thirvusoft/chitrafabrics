@@ -51,7 +51,7 @@ doctype_js = {"Sales Invoice" : "chitrafabrics/utils/js/sales_invoice.js"}
 # 	"Role": "home_page"
 # }
 
-# Generators
+# Generatorsapps
 # ----------
 
 # automatically create page for each record of this doctype
@@ -70,8 +70,8 @@ doctype_js = {"Sales Invoice" : "chitrafabrics/utils/js/sales_invoice.js"}
 # ------------
 
 # before_install = "chitrafabrics.install.before_install"
-after_install = "chitrafabrics.migrate.after_migrate"
-after_migrate = "chitrafabrics.migrate.after_migrate"
+# after_install = "chitrafabrics.migrate.after_migrate"
+# after_migrate = "chitrafabrics.migrate.after_migrate"
 
 # Uninstallation
 # ------------
@@ -148,7 +148,7 @@ doc_events = {
 		"autoname":"chitrafabrics.chitrafabrics.utils.py.sales_invoice.sales_invoice_naming",
 		"on_trash":"chitrafabrics.chitrafabrics.utils.py.sales_invoice.sales_invoice_naming_deletion",
         "before_cancel": "chitrafabrics.chitrafabrics.utils.py.sales_invoice.before_cancel",
-        "validate": "chitrafabrics.chitrafabrics.utils.py.sales_invoice.validate"
+        # "validate": "chitrafabrics.chitrafabrics.utils.py.sales_invoice.validate"
 
 	},
     "POS Invoice":{
@@ -160,6 +160,13 @@ doc_events = {
 # ---------------
 
 scheduler_events = {
+
+	# "cron" : {
+	# 	"0 22 * * *": "chitrafabrics.chitrafabrics.utils.py.item.test"
+	# } , 
+
+
+
 # 	"all": [
 # 		"chitrafabrics.tasks.all"
 # 	],

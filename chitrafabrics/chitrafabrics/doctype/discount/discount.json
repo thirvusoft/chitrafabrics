@@ -1,12 +1,14 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "naming_series:",
  "creation": "2024-05-18 10:30:03.604028",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_scng",
   "amended_from",
+  "naming_series",
   "section_break_twcp",
   "item_type",
   "discount_starting_date",
@@ -92,15 +94,21 @@
    "fieldtype": "Date",
    "label": "Discount Ending Date",
    "reqd": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "options": "Dis-{#####}"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-05-30 18:05:40.447346",
+ "modified": "2024-06-08 13:29:14.727376",
  "modified_by": "Administrator",
  "module": "chitrafabrics",
  "name": "Discount",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

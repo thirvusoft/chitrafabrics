@@ -112,7 +112,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-05-04 16:15:28.694227",
+ "modified": "2024-06-11 23:46:42.660227",
  "modified_by": "Administrator",
  "module": "chitrafabrics",
  "name": "Purchase",
@@ -122,7 +122,7 @@
  "public": 1,
  "quick_lists": [],
  "roles": [],
- "sequence_id": 40.0,
+ "sequence_id": 35.0,
  "shortcuts": [
   {
    "color": "Grey",

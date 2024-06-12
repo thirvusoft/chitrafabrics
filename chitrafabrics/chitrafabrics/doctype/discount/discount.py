@@ -17,7 +17,8 @@ class Discount(Document):
         for i in doc.discount_table:
             batch = frappe.get_doc("Batch" , i.batch)
             batch.custom_item_discount_percentage = i.discount_percentage
-            batch.custom_item_discount_rate = batch.custom_item_price - (float(batch.custom_item_price) / 100 )* float(i.discount_percentage) 
+            disc =  batch.custom_item_price - (float(batch.custom_item_price) / 100 )* float(i.discount_percentage) 
+            batch.custom_item_discount_rate = round(disc , 0)
             batch.save()
             batch.reload()
         frappe.msgprint("Discount for All Batches Updated Successfully")

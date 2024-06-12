@@ -19,3 +19,19 @@ def item_name_delete(doc, action):
             code=frappe.db.get_value("Gender", doc.custom_gender, "custom_item_code")
             if code:
                 revert_series_if_last(f"{code}.####", doc.name)
+
+
+# def test():
+#     frappe.log_error("Process ok")
+#     try:
+#         ls = frappe.get_all("Item Price", fields=["price_list_rate", "name"])
+#         for i in ls:
+#             try:
+#                 doc = frappe.get_doc("Item Price", i.name)
+#                 doc.price_list_rate = round(i.price_list_rate)
+#                 doc.save()
+#                 doc.reload()
+#             except Exception as e:
+#                 frappe.log_error(f"Error updating Item Price {i.name}: {str(e)}", "Item Price Update Error")
+#     except Exception as e:
+#         frappe.log_error(f"Error fetching Item Prices: {str(e)}", "Item Price Fetch Error")
